@@ -24,33 +24,47 @@ function App() {
             .startAngle(Math.PI / 2)
             .endAngle(Math.PI);
 
-      return (
+        function BaseFace() {
+            return <circle
+                r={height / 2 - strokeWidth / 2}
+                fill="yellow"
+                stroke="black" //outline
+                strokeWidth={strokeWidth}
+            >
+            </circle>;
+        }
+
+        function Eyes() {
+            return <>
+                <circle
+                    cx={-eyeOffsetX} // where the x position should be
+                    cy={-eyeOffsetY} // y position
+                    r={eyeRadius}
+                    stroke="black" //outline
+                    strokeWidth={strokeWidth}
+                >
+                </circle>
+                <circle
+                    cx={eyeOffsetX} // where the x position should be
+                    cy={-eyeOffsetY} // y position
+                    r={eyeRadius}
+                    stroke="black" //outline
+                    strokeWidth={strokeWidth}
+                >
+                </circle>
+            </>;
+        }
+
+        function Smile() {
+            return <path d={mouthArc()}/>;
+        }
+
+        return (
           <svg width={width} height={height}>
               <g transform={`translate(${centerX},${centerY})`}>
-                  <circle
-                      r={height / 2- strokeWidth / 2 }
-                      fill="yellow"
-                      stroke="black" //outline
-                      strokeWidth={strokeWidth}
-                  >
-                  </circle>
-                  <circle
-                      cx={- eyeOffsetX} // where the x position should be
-                      cy={- eyeOffsetY} // y position
-                      r={eyeRadius}
-                      stroke="black" //outline
-                      strokeWidth={strokeWidth}
-                  >
-                  </circle>
-                  <circle
-                      cx={eyeOffsetX} // where the x position should be
-                      cy={-eyeOffsetY} // y position
-                      r={eyeRadius}
-                      stroke="black" //outline
-                      strokeWidth={strokeWidth}
-                  >
-                  </circle>
-                  <path d={mouthArc()} />
+                  <BaseFace />
+                  <Eyes />
+                  <Smile />
               </g>
           </svg>
       );
