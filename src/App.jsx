@@ -15,11 +15,12 @@ function App() {
         const centerY = height/2;
         const eyeOffsetX = 100;
         const eyeOffsetY = 80;
-
+        const mouthWidth = 20;
+        const mouthRadius = 150;
         const eyeRadius = 50;
         const mouthArc = arc() // constructor pattern with method chaining
-            .innerRadius(90)
-            .outerRadius(100)
+            .innerRadius(mouthRadius)
+            .outerRadius(mouthRadius + mouthWidth)
             .startAngle(Math.PI / 2)
             .endAngle(Math.PI * 3/2 );
 
