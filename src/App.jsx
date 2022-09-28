@@ -7,9 +7,21 @@ function App() {
 
     const Smiley = () => {
       // svg needs width and height to fit the needs as it's defaulted and will cut off
+        const height = 500;
+        const width = 960;
+        const strokeWidth = 10;
       return (
-          <svg width="960" height="500">
-              <circle r="200"></circle>
+          <svg width={width} height={height}>
+              <circle
+                  cx={width/2} // where the x position should be
+                  cy={height/2} // y position
+                  r={height / 2- strokeWidth / 2 }
+                  fill="yellow"
+                  stroke="black" //outline
+                  strokeWidth={strokeWidth}
+              >
+
+              </circle>
           </svg>
       );
     };
