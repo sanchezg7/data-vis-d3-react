@@ -10,17 +10,28 @@ function App() {
         const height = 500;
         const width = 960;
         const strokeWidth = 10;
+        const centerX = width/2;
+        const centerY = height/2;
+        const eyeOffsetX = 80;
+        const eyeOffsetY = 80;
       return (
           <svg width={width} height={height}>
               <circle
-                  cx={width/2} // where the x position should be
-                  cy={height/2} // y position
+                  cx={centerX} // where the x position should be
+                  cy={centerY} // y position
                   r={height / 2- strokeWidth / 2 }
                   fill="yellow"
                   stroke="black" //outline
                   strokeWidth={strokeWidth}
               >
-
+              </circle>
+              <circle
+                  cx={centerX - eyeOffsetX} // where the x position should be
+                  cy={centerY - eyeOffsetY} // y position
+                  r={50}
+                  stroke="black" //outline
+                  strokeWidth={strokeWidth}
+              >
               </circle>
           </svg>
       );
