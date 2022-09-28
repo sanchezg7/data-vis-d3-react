@@ -7,7 +7,8 @@ const cy = height / 2;
 const radius = 30;
 
 const handleMouseMove = e => {
-  console.log(e);
+    const { clientX, clientY } = e;
+  console.log({clientX, clientY});
 };
 
 export const CssColorVis = () => {
