@@ -17,39 +17,41 @@ function App() {
         const eyeOffsetY = 80;
 
         const mouthArc = arc() // constructor pattern with method chaining
-            .innerRadius(0)
+            .innerRadius(90)
             .outerRadius(100)
             .startAngle(0)
-            .endAngle(Math.PI / 2);
+            .endAngle(Math.PI * 2);
 
       return (
           <svg width={width} height={height}>
-              <circle
-                  cx={centerX} // where the x position should be
-                  cy={centerY} // y position
-                  r={height / 2- strokeWidth / 2 }
-                  fill="yellow"
-                  stroke="black" //outline
-                  strokeWidth={strokeWidth}
-              >
-              </circle>
-              <circle
-                  cx={centerX - eyeOffsetX} // where the x position should be
-                  cy={centerY - eyeOffsetY} // y position
-                  r={50}
-                  stroke="black" //outline
-                  strokeWidth={strokeWidth}
-              >
-              </circle>
-              <circle
-                  cx={centerX + eyeOffsetX} // where the x position should be
-                  cy={centerY - eyeOffsetY} // y position
-                  r={50}
-                  stroke="black" //outline
-                  strokeWidth={strokeWidth}
-              >
-              </circle>
-              <path d={mouthArc()} />
+              <g transform={`translate(${centerX},${centerY})`}>
+                  <circle
+                      cx={centerX} // where the x position should be
+                      cy={centerY} // y position
+                      r={height / 2- strokeWidth / 2 }
+                      fill="yellow"
+                      stroke="black" //outline
+                      strokeWidth={strokeWidth}
+                  >
+                  </circle>
+                  <circle
+                      cx={centerX - eyeOffsetX} // where the x position should be
+                      cy={centerY - eyeOffsetY} // y position
+                      r={50}
+                      stroke="black" //outline
+                      strokeWidth={strokeWidth}
+                  >
+                  </circle>
+                  <circle
+                      cx={centerX + eyeOffsetX} // where the x position should be
+                      cy={centerY - eyeOffsetY} // y position
+                      r={50}
+                      stroke="black" //outline
+                      strokeWidth={strokeWidth}
+                  >
+                  </circle>
+                  <path d={mouthArc()} />
+              </g>
           </svg>
       );
     };
