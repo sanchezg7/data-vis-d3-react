@@ -22,7 +22,7 @@ function App() {
             .innerRadius(mouthRadius)
             .outerRadius(mouthRadius + mouthWidth)
             .startAngle(Math.PI / 2)
-            .endAngle(Math.PI * 3/2 );
+            .endAngle(Math.PI);
 
       return (
           <svg width={width} height={height}>
