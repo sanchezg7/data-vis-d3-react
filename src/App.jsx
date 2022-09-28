@@ -5,6 +5,15 @@ import './App.css'
 function App() {
   const [count, setCount] = useState(0)
 
+    const Smiley = () => {
+      // svg needs width and height to fit the needs as it's defaulted and will cut off
+      return (
+          <svg width="960" height="500">
+              <circle r="200"></circle>
+          </svg>
+      );
+    };
+
   return (
     <div className="App">
       <div>
@@ -24,6 +33,7 @@ function App() {
           Edit <code>src/App.jsx</code> and save to test HMR
         </p>
       </div>
+      <Smiley />
       <p className="read-the-docs">
         Click on the Vite and React logos to learn more
       </p>
