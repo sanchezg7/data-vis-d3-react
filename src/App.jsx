@@ -16,18 +16,17 @@ function App() {
         const eyeOffsetX = 100;
         const eyeOffsetY = 80;
 
+        const eyeRadius = 50;
         const mouthArc = arc() // constructor pattern with method chaining
             .innerRadius(90)
             .outerRadius(100)
-            .startAngle(0)
-            .endAngle(Math.PI * 2);
+            .startAngle(Math.PI / 2)
+            .endAngle(Math.PI * 3/2 );
 
       return (
           <svg width={width} height={height}>
               <g transform={`translate(${centerX},${centerY})`}>
                   <circle
-                      cx={centerX} // where the x position should be
-                      cy={centerY} // y position
                       r={height / 2- strokeWidth / 2 }
                       fill="yellow"
                       stroke="black" //outline
@@ -35,17 +34,17 @@ function App() {
                   >
                   </circle>
                   <circle
-                      cx={centerX - eyeOffsetX} // where the x position should be
-                      cy={centerY - eyeOffsetY} // y position
-                      r={50}
+                      cx={- eyeOffsetX} // where the x position should be
+                      cy={- eyeOffsetY} // y position
+                      r={eyeRadius}
                       stroke="black" //outline
                       strokeWidth={strokeWidth}
                   >
                   </circle>
                   <circle
-                      cx={centerX + eyeOffsetX} // where the x position should be
-                      cy={centerY - eyeOffsetY} // y position
-                      r={50}
+                      cx={eyeOffsetX} // where the x position should be
+                      cy={-eyeOffsetY} // y position
+                      r={eyeRadius}
                       stroke="black" //outline
                       strokeWidth={strokeWidth}
                   >
