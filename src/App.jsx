@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import './App.css'
+import { arc } from "d3";
 
 function App() {
   const [count, setCount] = useState(0)
@@ -14,6 +15,13 @@ function App() {
         const centerY = height/2;
         const eyeOffsetX = 100;
         const eyeOffsetY = 80;
+
+        const mouthArc = arc() // constructor pattern with method chaining
+            .innerRadius(0)
+            .outerRadius(100)
+            .startAngle(0)
+            .endAngle(Math.PI / 2);
+
       return (
           <svg width={width} height={height}>
               <circle
@@ -41,6 +49,7 @@ function App() {
                   strokeWidth={strokeWidth}
               >
               </circle>
+              <path d={mouthArc()} />
           </svg>
       );
     };
