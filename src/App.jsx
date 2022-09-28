@@ -12,7 +12,7 @@ function App() {
         const strokeWidth = 10;
         const centerX = width/2;
         const centerY = height/2;
-        const eyeOffsetX = 80;
+        const eyeOffsetX = 100;
         const eyeOffsetY = 80;
       return (
           <svg width={width} height={height}>
@@ -27,6 +27,14 @@ function App() {
               </circle>
               <circle
                   cx={centerX - eyeOffsetX} // where the x position should be
+                  cy={centerY - eyeOffsetY} // y position
+                  r={50}
+                  stroke="black" //outline
+                  strokeWidth={strokeWidth}
+              >
+              </circle>
+              <circle
+                  cx={centerX + eyeOffsetX} // where the x position should be
                   cy={centerY - eyeOffsetY} // y position
                   r={50}
                   stroke="black" //outline
