@@ -1,15 +1,11 @@
-import React, { useState, useCallback } from "react";
-import colorsDb from "./assets/csscolors.csv";
-// import {csvParse} from "d3";
-console.log("colorsCSV: ", colorsDb);
-// console.log("d3 csv parse", csvParse(colorsDb));
+import React, {useCallback, useState} from "react";
 
 const width = 960;
 const height = 500;
 const radius = 30;
 const initMosPos = { x: width/2, y: height/2 };
 
-export const CssColorVis = () => {
+export const MousePointerSample = () => {
     const [mousePos, setMousePos] = useState(initMosPos);
     const handleMouseMove = useCallback(e => {
         const { clientX, clientY } = e;
