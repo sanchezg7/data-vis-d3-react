@@ -6,10 +6,14 @@ const cx = width / 2;
 const cy = height / 2;
 const radius = 30;
 
+const handleMouseMove = e => {
+  console.log(e);
+};
+
 export const CssColorVis = () => {
 
     return (
-        <svg width={width} height={height}>
+        <svg width={width} height={height} onMouseMove={handleMouseMove}>
             <circle
                 cx={cx}
                 cy={cy}
