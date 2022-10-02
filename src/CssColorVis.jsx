@@ -12,7 +12,16 @@ export const CssColorVis = () => {
 
     return (
         <>
-            {data.map(datum => <p>{JSON.stringify(datum)}</p>)}
+            {data.map(datum =>
+                    <div
+                        style={{
+                            backgroundColor: datum.hex,
+                            width: "960px",
+                            height: "4px"
+                        }}>
+                    </div>
+                )
+            }
         </>
     )
 };
