@@ -11,22 +11,22 @@ const height = 500;
 const centerX = width / 2;
 const centerY = height / 2;
 
-const pieArc = () => arc()
-    .innerRadius(0)
-    .outerRadius(width)
-    .startAngle(Math.PI / 2)
-    .endAngle((Math.PI) * 3/2);
+const pieArc = arc()
+        .innerRadius(0)
+        .outerRadius(width)
+        .startAngle(Math.PI / 2)
+        .endAngle((Math.PI) * 3/2);
 
-// {/*{data.map((datum, index) =>*/}
-// {/*        <path*/}
-// {/*            key={JSON.stringify(datum)}*/}
-// {/*            fill={datum.hex}*/}
-// {/*            d={radialProjection({*/}
-// {/*                startAngle: index / data.length * 2 * Math.PI,*/}
-// {/*                endAngle: (index + 1) / data.length * 2 * Math.PI*/}
-// {/*            })} />*/}
-// {/*    )*/}
-// {/*}*/}
+// {data.map(datum =>
+//     <div
+//         style={{
+//             backgroundColor: datum.hex,
+//             width: "960px",
+//             height: "4px"
+//         }}>
+//     </div>
+// )
+// }
 
 export const CssColorVis = () => {
     const [data] = useState(colorsDb);
@@ -35,9 +35,15 @@ export const CssColorVis = () => {
 
     return (
         <svg width={width} height={height}>
-            {/*<g transform={`translate(${centerX},${centerY})`}>*/}
-                {data.map(d => <path fill={d.hex} d={pieArc()} />)}
-            {/*</g>*/}
+            <g transform={`translate(${centerX},${centerY})`}>
+                {data.map(d => {
+                    const dpath = pieArc();
+                    debugger;
+                    return (
+                        <path fill="green" d={dpath}/>
+                    )
+                })}
+            </g>
         </svg>
     )
 };

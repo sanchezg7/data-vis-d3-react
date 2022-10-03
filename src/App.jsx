@@ -7,7 +7,7 @@ import { CssColorVis } from "./CssColorVis";
 function App() {
 
   return (
-    <div className="App">
+    <div>
         <CssColorVis />
       {/*<SmileyFace />*/}
     </div>
