@@ -11,11 +11,7 @@ const height = 500;
 const centerX = width / 2;
 const centerY = height / 2;
 
-const pieArc = arc()
-        .innerRadius(0)
-        .outerRadius(width)
-        .startAngle(Math.PI / 2)
-        .endAngle((Math.PI) * 3/2);
+
 
 // {data.map(datum =>
 //     <div
@@ -28,6 +24,10 @@ const pieArc = arc()
 // )
 // }
 
+const pieArc = arc()
+    .innerRadius(0)
+    .outerRadius(width);
+
 export const CssColorVis = () => {
     const [data] = useState(colorsDb);
 
@@ -36,11 +36,13 @@ export const CssColorVis = () => {
     return (
         <svg width={width} height={height}>
             <g transform={`translate(${centerX},${centerY})`}>
-                {data.map(d => {
-                    const dpath = pieArc();
-                    debugger;
+                {data.map((d, i) => {
+                    const dpath = pieArc({
+                        startAngle: i / data.length * 2 * Math.PI,
+                        endAngle: (i + 1) / data.length * 2 * Math.PI
+                    });
                     return (
-                        <path fill="green" d={dpath}/>
+                        <path fill={d.hex} d={dpath}/>
                     )
                 })}
             </g>
